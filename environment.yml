@@ -1,0 +1,26 @@
+name: onset_antigenic_evolution
+
+dependencies:
+  - collections
+  - matplotlib
+  - functools
+  - seaborn
+  - numpy
+  - scipy
+  - random 
+  - mesa
+  - tqdm 
+  - warnings
+  - datetime
+  - os
+  - time
+  - itertools
+  - multiprocessing
+  - resource
+  - numba
+  - pandas 
+  - inspect 
+  - copy
+  - pickle
+  - typing 
+  - anytree
