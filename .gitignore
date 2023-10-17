@@ -1,3 +1,6 @@
 data/
 *-workspace
 *DS_Store
+*.txt
+*.pkl
+*.pyc
