@@ -30,7 +30,7 @@ def z_peak(R0, kappa=0):
     if kappa==0:
         return np.log(R0)/R0
     else:
-        return R0/kappa * np.log( (R0-1)/(R0)*kappa)-(R0-1)/kappa
+        return R0/kappa * np.log( (R0-1)/(R0**2)*kappa)-(R0-1)/kappa
 
 def x_peak(R0, kappa=0):
     if kappa ==0:
