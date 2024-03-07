@@ -1,6 +1,9 @@
 data/
+archive/
+10000_archive/
 *-workspace
 *DS_Store
 *.txt
 *.pkl
 *.pyc
+*.feather

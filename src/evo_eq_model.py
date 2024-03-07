@@ -360,12 +360,15 @@ class eqModel(Model):
             if strain.root_intersection_time<np.inf:
                 self.running=False
         
-    def run_to_extinction(self, snapshot_interval = 10):
+    def run_to_extinction(self, snapshot_interval = 10, ignore_running = False):
         for i in tqdm(range(self.max_steps_func())):
             if len(self.alive_strains)==0:
                 break
-            if self.running==False:
+            if self.running==False and ignore_running==False:
                 break
+            else:
+                if self.root_strain.active_infected==0:
+                    break
             self.step()
             if i%snapshot_interval==0:
                 self.snapshot(i*self.dt)
