@@ -360,7 +360,7 @@ class eqModel(Model):
             if strain.root_intersection_time<np.inf:
                 self.running=False
         
-    def run_to_extinction(self, snapshot_interval = 10, ignore_running = False):
+    def run_to_extinction(self, snapshot_interval = 10, ignore_running = False, max_iter= None):
         for i in tqdm(range(self.max_steps_func())):
             if len(self.alive_strains)==0:
                 break
@@ -369,9 +369,13 @@ class eqModel(Model):
             else:
                 if self.root_strain.active_infected==0:
                     break
+            if max_iter is not None and i>max_iter:
+                break
             self.step()
+            
             if i%snapshot_interval==0:
                 self.snapshot(i*self.dt)
+        self.ilast = i
 
     def run_to_peak(self,snapshot_interval=10):
         for i in tqdm(range(self.peak_steps_func())):
@@ -379,7 +383,8 @@ class eqModel(Model):
             if i%snapshot_interval==0:
                 self.snapshot(i*self.dt)
             self.snapshot(i*self.dt)
-    
+        self.ilast = i
+        
     def plot_trajectories(self, save= True):
         R0 = self.infection_rate
         kappa= self.kappa

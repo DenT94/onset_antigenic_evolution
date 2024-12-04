@@ -7,3 +7,7 @@ archive/
 *.pkl
 *.pyc
 *.feather
+*.pdf
+*.jpg
+*.svg
+*.png
