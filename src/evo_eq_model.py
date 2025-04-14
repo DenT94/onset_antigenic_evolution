@@ -28,9 +28,6 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib as mpl
 
-## ghost line
-#another ghostline
-
 class Strain(Node):
     def __init__(self, name, parent=None, children = None, distance_to_parent =0,population=None):
         super().__init__(name, parent=parent, children=children,)
